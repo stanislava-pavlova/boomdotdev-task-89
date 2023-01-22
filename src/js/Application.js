@@ -18,9 +18,9 @@ export default class Application extends EventEmitter {
 
   async _load() {
     const apiUrl = 'https://swapi.boom.dev/api/planets/';
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    return data;
+    return await fetch(apiUrl).then((response) => {
+      return response.json();
+    });
   }
 
   _create() {
